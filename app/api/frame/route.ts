@@ -18,6 +18,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     text = body.untrustedData.inputText;
   }
 
+  console.log(body)
+
   return new NextResponse(
     getFrameHtmlResponse({
       buttons: [
