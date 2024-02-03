@@ -2,7 +2,7 @@ import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/o
 import { NextRequest, NextResponse } from 'next/server';
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-const NEXT_PUBLIC_URL = 'https://mfer-pi.vercel.app/';
+const NEXT_PUBLIC_URL = 'https://mfer-seven.vercel.app/';
 
 const sdk = ThirdwebSDK.fromPrivateKey("30dde51d5d1f88add6e85935eb8f090fd89d8dc79faca2d00f196cdbfea82524", "base-sepolia-testnet",{
   secretKey:'w2JAM9-9TKVKS5e3OTl6GF2OjO_jzBsxVgP7UfnQxa1uUQCe6JOpm7Sdd3U2Dil87lVbXjYTRRv9hdzAYRB2Ng'
@@ -44,7 +44,7 @@ let response;
           label: `Text:  ${response}`,
         },
       ],
-      image: `${NEXT_PUBLIC_URL}/park-2.png`,
+      image: `${NEXT_PUBLIC_URL}/mfer.jpg`,
       post_url: `${NEXT_PUBLIC_URL}/api/frame`,
     }),
   );
