@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Mfer.xyz',
     description: 'A forcaster token',
-    images: [`${NEXT_PUBLIC_URL}/park-1.png`],
+    images: [`${NEXT_PUBLIC_URL}/mfer.jpg`],
   },
   other: {
     ...frameMetadata,
