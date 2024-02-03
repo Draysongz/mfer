@@ -1,7 +1,7 @@
 import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit';
 import { NextRequest, NextResponse } from 'next/server';
 
-const NEXT_PUBLIC_URL = 'http://localhost:3000';
+const NEXT_PUBLIC_URL = 'https://mfer-git-main-brandai.vercel.app';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = '';
