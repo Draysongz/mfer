@@ -1,7 +1,7 @@
 import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
 
-const NEXT_PUBLIC_URL = 'https://mfer-git-main-brandai.vercel.app';
+const NEXT_PUBLIC_URL = 'https://mfer-seven.vercel.app';
 
 const frameMetadata = getFrameMetadata({
   buttons: [
@@ -15,7 +15,7 @@ const frameMetadata = getFrameMetadata({
       action: 'post_redirect'
     }
   ],
-  image: `${NEXT_PUBLIC_URL}/park-1.png`,
+  image: `${NEXT_PUBLIC_URL}/mfer.jpg`,
   post_url: `${NEXT_PUBLIC_URL}/api/frame`,
 });
 

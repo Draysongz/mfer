@@ -23,11 +23,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
  const token= await contract.erc20.totalSupply()
  
-
+let response;
  if(parseFloat(token.displayValue) > 0){
   const mintToWallet = await contract.erc20.mintTo(accountAddress, 1000000)
   if(mintToWallet){
-    
+    response = 'claimed 1m tokens'
+  }else{
+    response = 'error'
   }
  }
  
@@ -39,7 +41,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     getFrameHtmlResponse({
       buttons: [
         {
-          label: `Text:  minted`,
+          label: `Text:  ${response}`,
         },
       ],
       image: `${NEXT_PUBLIC_URL}/park-2.png`,
