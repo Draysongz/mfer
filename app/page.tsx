@@ -1,7 +1,7 @@
 import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
 
-const NEXT_PUBLIC_URL = 'https://zizzamia.xyz';
+const NEXT_PUBLIC_URL = 'http://localhost:3000';
 
 const frameMetadata = getFrameMetadata({
   buttons: [
