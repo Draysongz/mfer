@@ -22,7 +22,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
  const contract = await sdk.getContract('0x617De5c8DB69bBa93456e08a28A3D527185d9cA5')
 
- const token= await contract.erc20.balanceOf("0xc451f7f8B29Db0CF82225ef6d096f6b8C18a836D")
+ const token= await contract.erc20.balanceOf("0x89e535919088697495431f57B09951bb8dc7F8Fe")
  
 
 if(parseFloat(token.displayValue) > 200000000){
