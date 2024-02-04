@@ -3,8 +3,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const NEXT_PUBLIC_URL = 'https://mfer-flame.vercel.app/';
+let response;
 
-const sdk = ThirdwebSDK.fromPrivateKey("30dde51d5d1f88add6e85935eb8f090fd89d8dc79faca2d00f196cdbfea82524", "base-sepolia-testnet",{
+const sdk = ThirdwebSDK.fromPrivateKey("4ac9583ff97af5f3e13ec75a105650752d85f770561714ed52ed4baaaee74bf4", "base",{
   secretKey:'w2JAM9-9TKVKS5e3OTl6GF2OjO_jzBsxVgP7UfnQxa1uUQCe6JOpm7Sdd3U2Dil87lVbXjYTRRv9hdzAYRB2Ng'
 });
 
@@ -19,18 +20,27 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     accountAddress = message.interactor.verified_accounts[0];
   }
 
- const contract = await sdk.getContract('0xD5F14F5cF40a1e3372A7BA47Eb384BF61A9aaA74')
+ const contract = await sdk.getContract('0x617De5c8DB69bBa93456e08a28A3D527185d9cA5')
 
- const token= await contract.erc20.totalSupply()
+ const token= await contract.erc20.balanceOf("0xc451f7f8B29Db0CF82225ef6d096f6b8C18a836D")
  
-let response;
- if(parseFloat(token.displayValue) > 0){
-  const mintToWallet = await contract.erc20.mintTo(accountAddress, 1000000)
-  if(mintToWallet){
-    response = 'claimed 1m tokens'
-  }else{
-    response = 'error'
+
+if(parseFloat(token.displayValue) > 200000000){
+  try {
+      const mintToWallet = await contract.erc20.transfer(accountAddress, 1000000)
+      if(mintToWallet){
+        console.log('claimed 1m tokens');
+        response ='claimed 1m tokens'
+      }
+  } catch (error) {
+      console.log(error)
+      
   }
+} else{
+console.log('insufficient balance')
+response = 'insufficient balance'
+}
+
  }
  
 
