@@ -21,27 +21,28 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
  const contract = await sdk.getContract('0x617De5c8DB69bBa93456e08a28A3D527185d9cA5')
 
+ const hasMinted = await contract.erc20.balanceOf(accountAddress)
+
  const token= await contract.erc20.balanceOf("0x89e535919088697495431f57B09951bb8dc7F8Fe")
  
-let response;
- if(parseFloat(token.displayValue) > 200000000){
-  const mintToWallet = await contract.erc20.transfer(accountAddress, 1000000)
-  if(mintToWallet){
-    response = 'claimed 1m tokens'
-  }else{
-    response = 'error'
-  }
+ let response;
+ if (parseFloat(token.displayValue) > 200000000 && parseFloat(hasMinted.displayValue) < 1000000) {
+   const mintToWallet = await contract.erc20.transfer(accountAddress, 1000000);
+ 
+   if (mintToWallet) {
+     response = 'claimed 1m tokens';
+   } else {
+     response = 'error';
+   }
  }
  
-
-
  
 
   return new NextResponse(
     getFrameHtmlResponse({
       buttons: [
         {
-          label: `Text:  ${response}`,
+          label: `minted 1,000,000 tokens`,
         },
       ],
       image: `${NEXT_PUBLIC_URL}/mfer.jpg`,
