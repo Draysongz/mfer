@@ -5,7 +5,7 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 const NEXT_PUBLIC_URL = 'https://mfer-flame.vercel.app/';
 let response;
 
-const sdk = ThirdwebSDK.fromPrivateKey("4ac9583ff97af5f3e13ec75a105650752d85f770561714ed52ed4baaaee74bf4", "base",{
+const sdk = ThirdwebSDK.fromPrivateKey("de802f340d595282df750e755365ea735f711e61da76c4e57e0c59f2dfdfd07d", "base",{
   secretKey:'w2JAM9-9TKVKS5e3OTl6GF2OjO_jzBsxVgP7UfnQxa1uUQCe6JOpm7Sdd3U2Dil87lVbXjYTRRv9hdzAYRB2Ng'
 });
 
